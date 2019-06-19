@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>לוח הכפל</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css1.css"/>
+		
+		
+		<script>
+			function f1(){
+			if (document.getElementById("name").value=="" ||document.getElementById("password").value==""){
+			document.getElementById("D1").innerHTML="הזן פרטים מלאים";
+			document.getElementById("D1").style.color="red";
+			} else		{
+			var name=document.getElementById("name").value;
+			var password=document.getElementById("password").value;
+			localStorage.setItem("username",name);			
+			localStorage.setItem("password",password);
+			document.getElementById("form").style.display="none";
+			document.getElementById("btn").style.display="none";
+			document.getElementById("D1").style.color="black";
+			document.getElementById("D1").innerHTML="ברוך הבא, " + localStorage.getItem("username");
+			reg=1;
+			document.getElementById("q").style.display="inline-block";
+			document.getElementById("tab1").style.display="block";
+			document.getElementById("score").style.display="block";
+			document.getElementById("tim1").style.display="block";
+
+			}
+		}
+		
+
+		
+		
+		
+		</script>
+
+	</head>
+
+	<body  dir= "rtl">
+		<div id="title">משחק לוח הכפל</div>
+
+		<div id="D1">שלום וברכה, אנא הירשם</div>
+		<form id="form">
+			<input id="name" type="text" placeholder="שם משתמש">
+			<input id="password" type="password" placeholder="סיסמה" >
+		</form>
+			<button onclick="f1()" id="btn">הירשם!</button>		<div id="tim1">
+			<div id="timer0">זמן שנותר</div>
+			<div id="timer1">60</div>
+		</div>
+		<div id="score"></div>
+		<table id="tab1">
+		<tr id="tr"></tr>
+		</table>
+		<div id="q">
+			<div id="e"></div>
+			<button id="ans1" onclick="f2(1)"></button>
+			<button id="ans2" onclick="f2(2)"></button>
+			<button id="ans3" onclick="f2(3)"></button>
+			<button id="ans4" onclick="f2(4)"></button>
+		</div>
+		<div id="D2"></div>
+		<script>
+		var reg=0;
+		var end=0;
+		var timer=60;
+		setInterval(time,1000);
+		function time(){
+		if (timer>0 && reg==1){
+		timer--;
+		document.getElementById("timer1").innerHTML=timer;
+		}else if (reg==1 && end==0){
+			
+			document.getElementById("D2").innerHTML="זמנך תם";
+			document.getElementById("ans2").style.display="none";
+			document.getElementById("ans3").style.display="none";
+			document.getElementById("ans4").style.display="none";
+			document.getElementById("e").style.display="none";
+			
+			if (score<=localStorage.getItem("tscore")){
+			document.getElementById("ans1").innerHTML="המשחק הסתיים, צברת "+score+" נקודות, אך לא שברת את השיא הקודם. השיא נשאר: "+localStorage.getItem("tscore")+" נקודות. ";
+			}else{
+			document.getElementById("ans1").innerHTML="המשחק הסתיים, צברת "+score+" נקודות! כל הכבוד, שברת את השיא הקודם! ";
+		
+			}
+			
+			localStorage.setItem("tscore",score);	
+			end=1;	
+		}
+		
+		
+		
+		}
+		setInterval(d2,3000);
+		function d2(){document.getElementById("D2").innerHTML="";}
+			if (localStorage.getItem("username")!=null){
+			document.getElementById("D1").innerHTML="ברוך הבא, " + localStorage.getItem("username");
+			document.getElementById("form").style.display="none";
+			document.getElementById("btn").style.display="none";
+			document.getElementById("q").style.display="inline-block";
+			document.getElementById("tab1").style.display="block";
+			document.getElementById("score").style.display="block";
+			document.getElementById("tim1").style.display="block";			
+			reg=1;
+			
+			
+			
+			
+			}
+			
+			for (var i=1;i<11;i++){
+			
+			document.getElementById("tab1").innerHTML+="<tr>"+"<td>"+i*1+"</td>"+"<td>"+i*2+"</td>"+"<td>"+i*3+"</td>"+"<td>"+i*4+"</td>"+"<td>"+i*5+"</td>"+"<td>"+i*6+"</td>"+"<td>"+i*7+"</td>"+"<td>"+i*8+"</td>"+"<td>"+i*9+"</td>"+"<td>"+i*10+"</td>"+"<tr>";
+			}
+		var score=0;
+		document.getElementById("score").innerHTML=" ניקוד: "+score;
+		var send=0;	
+		var num1=0;
+		var num2=0;
+		var answer=0;
+		var a2=Math.floor(Math.random()*100);
+		var a3=Math.floor(Math.random()*100);
+		var a4=Math.floor(Math.random()*100);
+		while (num1<1||num1>10){
+		num1=Math.random()*10;
+		num1=Math.floor(num1);
+		}
+		while (num2<1 || num2>10){
+		num2=Math.random()*10;
+		num2=Math.floor(num2);
+		}
+		while (answer<1 || answer>4){
+		answer=Math.random()*10;
+		answer=Math.floor(answer);
+		}
+		
+		document.getElementById("e").innerHTML=num1+'X'+num2;
+		var a1=num1*num2;
+		while (a2==a1){
+		a2=Math.floor(Math.random()*100);
+		}
+		while (a3==a1 || a3==a2){
+		a3=Math.floor(Math.random()*100);
+		}
+		while (a4==a1 || a4==a2 || a4==a3){
+		a4=Math.floor(Math.random()*100);
+		}
+		switch(answer){
+			case 1:	document.getElementById("ans1").innerHTML=a1;
+		document.getElementById("ans2").innerHTML=a2;
+		document.getElementById("ans3").innerHTML=a3;
+		document.getElementById("ans4").innerHTML=a4;
+		break
+			case 2: document.getElementById("ans2").innerHTML=a1;
+		document.getElementById("ans1").innerHTML=a2;
+		document.getElementById("ans3").innerHTML=a3;
+		document.getElementById("ans4").innerHTML=a4;
+		break
+			case 3: document.getElementById("ans3").innerHTML=a1;
+		document.getElementById("ans2").innerHTML=a2;
+		document.getElementById("ans1").innerHTML=a3;
+		document.getElementById("ans4").innerHTML=a4;
+		break
+			case 4: document.getElementById("ans4").innerHTML=a1;
+		document.getElementById("ans2").innerHTML=a2;
+		document.getElementById("ans3").innerHTML=a3;
+		document.getElementById("ans1").innerHTML=a4;
+		break
+		
+		}
+		function f2(send){
+		
+		if(end==0){
+		if (send==answer){
+		score=score+10;
+		document.getElementById("score").innerHTML=" ניקוד:"+score;
+		document.getElementById("D2").innerHTML="יפה מאוד";
+		} else {
+		score=score-10;
+		document.getElementById("score").innerHTML=" ניקוד:"+score;
+
+		document.getElementById("D2").innerHTML="מצטערים, טעיתם";
+		}
+		num1=0;
+		num2=0;
+		answer=0;
+		while (num1<1||num1>10){
+		num1=Math.random()*10;
+		num1=Math.floor(num1);
+		}
+		while (num2<1 || num2>10){
+		num2=Math.random()*10;
+		num2=Math.floor(num2);
+		}
+		while (answer<1 || answer>4){
+		answer=Math.random()*10;
+		answer=Math.floor(answer);
+		}
+		a2=Math.floor(Math.random()*100);
+		a3=Math.floor(Math.random()*100);
+		a4=Math.floor(Math.random()*100);		
+		document.getElementById("e").innerHTML=num1+'X'+num2;
+		var a1=num1*num2;
+		while (a2==a1){
+		a2=Math.floor(Math.random()*100);
+		}
+		while (a3==a1 || a3==a2){
+		a3=Math.floor(Math.random()*100);
+		}
+		while (a4==a1 || a4==a2 || a4==a3){
+		a4=Math.floor(Math.random()*100);
+		}
+		switch(answer){
+			case 1:	document.getElementById("ans1").innerHTML=a1;
+		document.getElementById("ans2").innerHTML=a2;
+		document.getElementById("ans3").innerHTML=a3;
+		document.getElementById("ans4").innerHTML=a4;
+		break
+			case 2: document.getElementById("ans2").innerHTML=a1;
+		document.getElementById("ans1").innerHTML=a2;
+		document.getElementById("ans3").innerHTML=a3;
+		document.getElementById("ans4").innerHTML=a4;
+		break
+			case 3: document.getElementById("ans3").innerHTML=a1;
+		document.getElementById("ans2").innerHTML=a2;
+		document.getElementById("ans1").innerHTML=a3;
+		document.getElementById("ans4").innerHTML=a4;
+		break
+			case 4: document.getElementById("ans4").innerHTML=a1;
+		document.getElementById("ans2").innerHTML=a2;
+		document.getElementById("ans3").innerHTML=a3;
+		document.getElementById("ans1").innerHTML=a4;
+		break
+		
+		}
+		}
+		}
+		
+		
+		
+			
+
+		</script>
+
+ 	</body>
+
+</html>

@@ -1,0 +1,156 @@
+body{
+	text-align:center;
+	background-image:url("background.png");
+	background-size:cover;
+	margin:0px;
+}
+
+td{width:30px;
+	height:30px;
+	
+	background-color:white;
+	border: 1px solid gray;
+	border-radius:5px;
+	padding:5px;
+
+}
+td:hover{
+	background-color:#ffbed9;
+	font-size:bold;
+	color:#7e0072;
+	
+}
+
+input{
+	padding:5px 20px 5px 20px;
+	font-family:tahoma;
+	font-size:20px;
+	box-shadow:0px 0px 10px black;
+	margin:20px;
+	border-radius:10px;
+	margin-top:50px;
+	
+}
+
+#btn{
+	font-family:tahoma;
+	font-size:20px;
+	padding:20px;
+	margin:30px;
+	border-radius:10px;
+	
+}
+table{
+	position:absolute;
+	top:200px;
+	left:15px;
+	background-color:#00bed9;
+	font-family:tahoma;
+	border-radius:5px;
+	padding:5px;
+	box-shadow:0px 0px 10px black;
+	display:none;
+
+}
+
+#tim1,#score{
+	background-color:pink;
+	border-radius:360px;
+	
+	transform:rotate(10deg);
+	width:150px;
+	height:105px;
+	margin-right:100px;
+	margin-top:80px;
+	padding-top:45px;
+	box-shadow:0px 2.5px 10px black;	
+	position:absolute;
+	top:200px;
+	display:none;
+}
+#timer1{
+	font-family:tahoma;
+	font-size:30px;
+	margin:5px;
+
+}
+#timer0{	
+	font-family:tahoma;
+	font-size:25px;
+	font-weight:bold;
+	
+}
+#D1{
+	background-color:#c6ffc0;
+	padding:5px;
+	font-family:tahoma;
+	font-size:25px;
+	box-shadow:0px 2.5px 10px black;
+	
+
+}
+
+#score{
+	font-family:tahoma;
+	font-size:30px;
+	margin:30px;
+	top:425px;
+	background-color:white;
+	height:95px;
+	padding-top:55px;
+}
+
+#title{
+	font-family:tahoma;
+	background-color:#719b08;
+	width:px;
+	padding:20px;
+	text-shadow:0px 0px 10px black;
+	font-weight:bold;
+	font-size:60px;
+	margin:35px 0px 0px 0px;
+	color:white;
+	box-shadow:0px 0px 10px black;
+}
+#ans1,#ans2,#ans3,#ans4{
+	
+	padding:20px 30px 20px 30px;
+	margin:30px;
+	border-radius:10px;
+}
+
+#D2,#ans1,#ans2,#ans3,#ans4{
+	font-family:tahoma;
+	font-size:30px;
+	margin:30px;
+
+}
+#D2{
+	
+margin-left:280px;
+
+	
+	
+}
+
+#e{
+	font-family:tahoma;
+	font-size:50px;
+	font-weight:bold;
+	margin:30px;
+	
+
+	
+}
+#q{
+	background-color: #f5f7d3;
+	width:45%;
+	padding:25px;
+	border-radius:10px;
+	display:inline-block;
+	margin-left:240px;
+	margin-top:80px;
+	display:none;
+}
+
+
